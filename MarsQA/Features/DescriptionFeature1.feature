@@ -20,3 +20,4 @@ Then Then the record should be created successfully '<CertificationName>'
 Examples: 
 | CertificationName        |
 | NetRiders Challenge 2012 |
+

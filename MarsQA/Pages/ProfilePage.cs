@@ -283,7 +283,7 @@ namespace MarsQA.Pages
         public void deleteCertification(IWebDriver driver) 
         {
 
-            // Delete Education
+            // Delete Certification
 
             // Click on Certification button
             WebDriverWait wait3 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -293,7 +293,7 @@ namespace MarsQA.Pages
             IWebElement certificationButton1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));
             certificationButton1.Click();
             Thread.Sleep(4000);
-            // Delete button
+            //Delete button
 
             IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody[2]/tr/td[4]/span[2]/i"));
             deleteButton.Click();
@@ -304,6 +304,12 @@ namespace MarsQA.Pages
 
 
         }
+        
+        
+
+           
+
+        
     }
 
 }

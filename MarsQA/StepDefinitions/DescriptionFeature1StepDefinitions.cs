@@ -63,6 +63,16 @@ namespace MarsQA.StepDefinitions
             string newAwards = profilePageObj.UpdateDescription(driver);
             Assert.That(newAwards == "certificationName", "Actual description and expected description do not match.");
         }
+        [When(@"I deleted an existing certification")]
+        public void WhenIDeletedAnExistingCertification()
+        {
+            profilePageObj.UpdateDescription(driver);
+        }
+        [Then(@"Then the certification will be deleted")]
+        public void ThenThenTheCertificationWillBeDeleted()
+        {
+            throw new PendingStepException();
+        }
 
     }
 }
