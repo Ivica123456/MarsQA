@@ -10,7 +10,7 @@ namespace MarsQA.Pages
 {
     public class ProfilePage
     {
-        public void CreateDescription(IWebDriver driver) 
+        public void CreateDescription(IWebDriver driver)
         {
             //Create description 
             IWebElement description = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/h3/span/i"));
@@ -33,13 +33,13 @@ namespace MarsQA.Pages
 
             Thread.Sleep(4000);
 
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
             //Click on skillS Button
 
             IWebElement skillsButton = driver.FindElement(By.XPath("//a[normalize-space()='Skills']"));
@@ -200,9 +200,9 @@ namespace MarsQA.Pages
             IWebElement ADDButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[3]/input[1]"));
             ADDButton.Click();
             Thread.Sleep(7000);
-             
+
             // Check new Description
-            
+
             IWebElement newDescription1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span"));
             newDescription1.Click();
             Thread.Sleep(7000);
@@ -217,10 +217,10 @@ namespace MarsQA.Pages
             IWebElement actualDescription = driver.FindElement(By.XPath("//span[contains(text(),'An organized candidate is a detail-oriented person')]"));
             return actualDescription.Text;
         }
-        
-        
-        
-        public void editDescription(IWebDriver driver, string certificationName) 
+
+
+
+        public void editDescription(IWebDriver driver, string certificationName, string putDescription)
         {
             // EDIT Certification
 
@@ -251,13 +251,13 @@ namespace MarsQA.Pages
             Thread.Sleep(5000);
             //Write Description
 
-            IWebElement putDescription = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea"));
-            putDescription.Clear();
+            IWebElement putDescription1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea"));
+            putDescription1.Clear();
             Thread.Sleep(5000);
-            putDescription.SendKeys("An organized candidate is a detail-oriented person an employer can trust to meet deadlines.");
+            putDescription1.SendKeys(putDescription);
 
             Thread.Sleep(4000);
-            
+
             IWebElement certificationButon2 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));
             certificationButon2.Click();
             Thread.Sleep(5000);
@@ -269,18 +269,23 @@ namespace MarsQA.Pages
 
         }
 
-            public string UpdateDescription(IWebDriver driver)
+        public string UpdateDescription(IWebDriver driver)
 
-            {
+        {
             IWebElement editAwords = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody[1]/tr/td[1]"));
-             return editAwords.Text;
-            }
+            return editAwords.Text;
+        }
+        public string newUpdatedDescription(IWebDriver driver)
+        {
+            IWebElement newDescription1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span/text()"));
+            return newDescription1.Text;
+        }
 
-       
-        
-        
-        
-        public void deleteCertification(IWebDriver driver) 
+
+
+
+
+        public void deleteCertification(IWebDriver driver)
         {
 
             // Delete Certification
@@ -303,13 +308,21 @@ namespace MarsQA.Pages
 
 
 
+
+
         }
-        
-        
+        public string GetDeleted(IWebDriver driver)
+        {
+            IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody[2]/tr/td[4]/span[2]/i"));
+            return deleteButton.Text;
 
-           
 
-        
+        }
+
+
+
+
+
     }
 
 }

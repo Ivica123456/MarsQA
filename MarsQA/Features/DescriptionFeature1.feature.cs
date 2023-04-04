@@ -110,12 +110,13 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Edit existing Certification Name with valid details")]
-        [NUnit.Framework.TestCaseAttribute("NetRiders Challenge 2012", null)]
-        public void EditExistingCertificationNameWithValidDetails(string certificationName, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("NetRiders Challenge 2012", "I like to read, I like to write; I like", null)]
+        public void EditExistingCertificationNameWithValidDetails(string certificationName, string putDescription, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("CertificationName", certificationName);
+            argumentsOfScenario.Add("putDescription", putDescription);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit existing Certification Name with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 13
 this.ScenarioInitialize(scenarioInfo);
@@ -134,10 +135,43 @@ testRunner.Given("I came to the website", ((string)(null)), ((TechTalk.SpecFlow.
 testRunner.When("I navigate to the Profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
-testRunner.And(string.Format("I updated \'{0}\', on existing Description record", certificationName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And(string.Format("I updated \'{0}\',\'{1}\' on existing Description record", certificationName, putDescription), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 17
-testRunner.Then(string.Format("Then the record should be created successfully \'{0}\'", certificationName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("Then the record should be created successfully \'{0}\',\'{1}\'", certificationName, putDescription), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Delete existing Certification")]
+        public void DeleteExistingCertification()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete existing Certification", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 24
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 25
+testRunner.Given("I came to the website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 26
+testRunner.When("I navigate to the Profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 27
+testRunner.And("I deleted existing Certification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 28
+testRunner.Then("Then the Certification should be deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -15,6 +15,9 @@ namespace MarsQA.StepDefinitions
         
         ProfilePage profilePageObj = new ProfilePage();
         SignIn signInObj = new SignIn();
+        ProfilePage DeletePageObj = new ProfilePage();
+        ProfilePage EditPageObj = new ProfilePage();
+
 
 
         [Given(@"I came to the website")]
@@ -52,27 +55,47 @@ namespace MarsQA.StepDefinitions
 
             Assert.That(newDescription == "An organized candidate is a detail-oriented person an employer can trust to meet deadlines.", " Actual description and expected description do not match.");
         }
-        [When(@"I updated '([^']*)' on existing Description record")]
-        public void WhenIUpdatedOnExistingDescriptionRecord(string certificationName)
+        //[When(@"I updated '([^']*)' on existing Description record")]
+        //public void WhenIUpdatedOnExistingDescriptionRecord(string certificationName)
+        //{
+        //    profilePageObj.UpdateDescription(driver);
+        //}
+        //[Then(@"Then the Description record should be created successfully")]
+        //public void ThenThenTheDescriptionRecordShouldBeCreatedSuccessfully(string certificationName)
+        //{
+        //    string newAwards = profilePageObj.UpdateDescription(driver);
+        //    Assert.That(newAwards == "certificationName", "Actual description and expected description do not match.");
+        //}
+        [When(@"I updated '([^']*)','([^']*)' on existing Description record")]
+        public void WhenIUpdatedOnExistingDescriptionRecord(string CertificationName, string putDescription)
         {
-            profilePageObj.UpdateDescription(driver);
+            EditPageObj.editDescription(driver,CertificationName, putDescription);
         }
-        [Then(@"Then the Description record should be created successfully")]
-        public void ThenThenTheDescriptionRecordShouldBeCreatedSuccessfully(string certificationName)
+        [Then(@"Then the record should be created successfully '([^']*)','([^']*)'")]
+        public void ThenThenTheRecordShouldBeCreatedSuccessfully(string CertificationName, string putDescription)
         {
-            string newAwards = profilePageObj.UpdateDescription(driver);
-            Assert.That(newAwards == "certificationName", "Actual description and expected description do not match.");
+            string newAwards = EditPageObj.UpdateDescription(driver);
+            string newdescription = EditPageObj.newUpdatedDescription(driver);
+
+
+            Assert.That(newAwards == CertificationName, "Actual description and expected description do not match.");
+            Assert.That(newdescription == putDescription, "Actual description and expected description do not match.");
         }
-        [When(@"I deleted an existing certification")]
-        public void WhenIDeletedAnExistingCertification()
+
+
+
+        [When(@"I deleted existing Certification")]
+        public void WhenIDeletedExistingCertification()
         {
-            profilePageObj.UpdateDescription(driver);
+            DeletePageObj.deleteCertification(driver);
         }
-        [Then(@"Then the certification will be deleted")]
-        public void ThenThenTheCertificationWillBeDeleted()
+        [Then(@"Then the Certification should be deleted")]
+        public void ThenThenTheCertificationShouldBeDeleted()
         {
-            throw new PendingStepException();
+            string newdeleted = DeletePageObj.GetDeleted(driver);
+            Assert.That( newdeleted!= "NetRiders Challenge 2011","Actual description and expected description do not match");
         }
+
 
     }
 }
