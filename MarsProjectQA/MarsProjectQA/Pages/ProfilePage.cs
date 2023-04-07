@@ -230,16 +230,16 @@ namespace MarsProjectQA.Pages
             Thread.Sleep(4000);
 
 
-
+            
 
 
 
 
      }
-        public string awardsTextBox1(IWebDriver driver)
+        public string newLanguage(IWebDriver driver)
         {
-            IWebElement awardsTextBox1 = driver.FindElement(By.XPath("//input[@placeholder='Certificate or Award']"));
-            return awardsTextBox1.Text;
+            IWebElement updateLanguage = driver.FindElement(By.XPath("//td[normalize-space()='English']"));
+            return updateLanguage.Text;
 
 
 
