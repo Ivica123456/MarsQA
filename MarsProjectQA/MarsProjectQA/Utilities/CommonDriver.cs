@@ -13,18 +13,10 @@ namespace MarsProjectQA.Utilities
     {
 
         public IWebDriver driver;
-       
-        //public void SingInSteps()
-        //{
-        //    //IWebDriver driver = new ChromeDriver();
-
-        //    driver = new ChromeDriver();
-
-        //    HomePage homePageObj = new HomePage();
-        //    homePageObj.GoToSingPage(driver);
 
 
-        //}
+
+        
 
 
     }

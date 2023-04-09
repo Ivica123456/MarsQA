@@ -214,7 +214,7 @@ namespace MarsProjectQA.Pages
 
             // ADD language button
 
-            IWebElement addlanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
+            IWebElement addlanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
             addlanguage.Click();
             Thread.Sleep(4000);
 
@@ -236,9 +236,24 @@ namespace MarsProjectQA.Pages
 
 
      }
+        public string getSkill(IWebDriver driver)
+        {
+
+            IWebElement newSkill = driver.FindElement(By.XPath("//input[@placeholder='Add Skill']"));
+            return newSkill.Text;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
         public string newLanguage(IWebDriver driver)
         {
-            IWebElement updateLanguage = driver.FindElement(By.XPath("//td[normalize-space()='English']"));
+            IWebElement updateLanguage = driver.FindElement(By.XPath("//td[normalize-space()='English']")); 
             return updateLanguage.Text;
 
 
