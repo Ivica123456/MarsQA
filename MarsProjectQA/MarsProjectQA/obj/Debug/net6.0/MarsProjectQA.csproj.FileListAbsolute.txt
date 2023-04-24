@@ -115,17 +115,9 @@ C:\Users\Ivica\Desktop\MVP Studio\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\n
 C:\Users\Ivica\Desktop\MVP Studio\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\nunit.engine.api.dll
 C:\Users\Ivica\Desktop\MVP Studio\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\nunit.engine.core.dll
 C:\Users\Ivica\Desktop\MVP Studio\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\testcentric.engine.metadata.dll
-C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.csproj.AssemblyReference.cache
-C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.AssemblyInfoInputs.cache
-C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.AssemblyInfo.cs
-C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.csproj.CoreCompileInputs.cache
-C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.dll
-C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\refint\MarsProjectQA.dll
-C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.pdb
-C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\testhost.exe
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\testhost.dll
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
+C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\testhost.exe
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\NUnit3.TestAdapter.dll
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\NUnit3.TestAdapter.pdb
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\nunit.engine.dll
@@ -141,6 +133,7 @@ C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\MarsP
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\MarsProjectQA.dll
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\MarsProjectQA.pdb
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\BoDi.dll
+C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\SeleniumExtras.PageObjects.dll
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\SeleniumExtras.WaitHelpers.dll
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\Gherkin.dll
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
@@ -229,6 +222,14 @@ C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\zh-Ha
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.csproj.AssemblyReference.cache
+C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.AssemblyInfoInputs.cache
+C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.AssemblyInfo.cs
+C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.csproj.CoreCompileInputs.cache
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.csproj.CopyComplete
+C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.dll
+C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\refint\MarsProjectQA.dll
+C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.pdb
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\MarsProjectQA.genruntimeconfig.cache
 C:\Users\Ivica\Desktop\MarsQA\MarsProjectQA\MarsProjectQA\obj\Debug\net6.0\ref\MarsProjectQA.dll

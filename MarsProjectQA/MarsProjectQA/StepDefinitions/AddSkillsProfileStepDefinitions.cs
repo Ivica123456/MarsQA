@@ -11,12 +11,22 @@ namespace MarsProjectQA.StepDefinitions
     [Binding]
     public class AddSkillsProfileStepDefinitions : CommonDriver
     {
-        ProfilePage profilePageObj = new ProfilePage();
+
+        ProfilePage profilePageObj;
+
+         public AddSkillsProfileStepDefinitions()
+         {
+
+            profilePageObj = new ProfilePage();
+         }
+
+
+
 
         [Given(@"I lunch and log into MarsQA portal successfully")]
         public void GivenILunchAndLogIntoMarsQAPortalSuccessfully()
         {
-            IWebDriver driver = new ChromeDriver();
+            
 
 
             //Home Page Object initalization and definition
@@ -33,16 +43,41 @@ namespace MarsProjectQA.StepDefinitions
         [When(@"I add new Skill")]
         public void WhenIAddNewSkill()
         {
-            
+
             profilePageObj.CreateProfile(driver);
+
         }
 
         [Then(@"Then new Skill should be added successfully")]
         public void ThenThenNewSkillShouldBeAddedSuccessfully()
         {
             string skill = profilePageObj.getSkill(driver);
-            Assert.That(skill == "Deep breathing" , "Actual code and expected code do not match.");
+            Assert.That(skill == "breathing", "Actual code and expected code do not match.");
 
         }
+        [When(@"I edited a new skill")]
+        public void WhenIEditedANewSkill()
+        {
+            profilePageObj.editedSkills(driver);
+        }
+        [Then(@"Then the new skill should be edited successfully")]
+        public void ThenThenTheNewSkillShouldBeEditedSuccessfully()
+        {
+            string newEdit = profilePageObj.newEditSkills(driver);
+            Assert.That(newEdit == "Computer skills", "Actual code and expected code do not match.");
+        }
+        [When(@"I deleted a new skill")]
+        public void WhenIDeletedANewSkill()
+        {
+            profilePageObj.deleteNewSkills(driver);
+        }
+        [Then(@"Then a new skill should be deleted successfully")]
+        public void ThenThenANewSkillShouldBeDeletedSuccessfully()
+        {
+            string deletedSkills1 = profilePageObj.lastDeleteSkill(driver);
+            Assert.That(deletedSkills1 != "Computer skills", "Actual code and expected code do not match.");
+        }
+
+
     }
 }

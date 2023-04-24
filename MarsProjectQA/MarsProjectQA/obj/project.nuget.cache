@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "p4mubHPHbRFNVvsuda0gF9olEGT8YKVispF2MF9PG9brc5otXy+a/t1ZejbysRZdBM+VMHOBPG8a+SD5rhzZTg==",
+  "dgSpecHash": "hnnmVWh/ULjErmwoKny81MLs1AiGalzUB4PDFexMSNVlWENGGM9+6QjH2NscowvG68PUTY4eGbr+X8U7+gydqg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ivica\\Desktop\\MarsQA\\MarsProjectQA\\MarsProjectQA\\MarsProjectQA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivica\\.nuget\\packages\\bodi\\1.5.0\\bodi.1.5.0.nupkg.sha512",
+    "C:\\Users\\Ivica\\.nuget\\packages\\dotnetseleniumextras.pageobjects\\3.11.0\\dotnetseleniumextras.pageobjects.3.11.0.nupkg.sha512",
     "C:\\Users\\Ivica\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
     "C:\\Users\\Ivica\\.nuget\\packages\\gherkin\\19.0.3\\gherkin.19.0.3.nupkg.sha512",
     "C:\\Users\\Ivica\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",
