@@ -51,7 +51,7 @@ namespace MarsProjectQA.StepDefinitions
         public void WhenIEditedANewCertification()
         {
             ProfilePage profilePageObj = new ProfilePage();
-            profilePageObj.editCertification(driver);
+            profilePageObj.EditCertification(driver);
         }
        
         
@@ -60,7 +60,7 @@ namespace MarsProjectQA.StepDefinitions
         public void ThenThenANewCertificationShouldBeEdited()
         {
             string editedCertification = profilePageObj.updatedCertification(driver);
-            Assert.That(editedCertification == "2014", "Actual code and expected code do not match.");
+            Assert.That(editedCertification == "NetRiders  2012", "Actual code and expected code do not match.");
         }
         [When(@"I deleted certification")]
         public void WhenIDeletedCertification()
@@ -72,7 +72,7 @@ namespace MarsProjectQA.StepDefinitions
         public void ThenThenCertificationShouldBeDeleted()
         {
             string lastDelete = profilePageObj.DeletedCertification(driver);
-            Assert.That(lastDelete != "NetRiders Challenge 2012" , "Actual code and expected code do not match.");
+            Assert.That(lastDelete != "NetRiders 2012" , "Actual code and expected code do not match.");
         }
 
 

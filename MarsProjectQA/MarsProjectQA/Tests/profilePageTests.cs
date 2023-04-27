@@ -38,16 +38,16 @@ namespace POM.Tests
         {
 
             
-            profilePageObj.editCertification(driver);
+            profilePageObj.EditCertification(driver);
             profilePageObj.editLanguage(driver);
             profilePageObj.editedSkills(driver);
 
 
         }
-        [Test , Order(4)]
+        [Test, Order(4)]
         public void DeleteProfilePage()
         {
-            
+
             profilePageObj.deleteCertification(driver);
             profilePageObj.deletedLanguage1(driver);
             profilePageObj.deleteNewSkills(driver);

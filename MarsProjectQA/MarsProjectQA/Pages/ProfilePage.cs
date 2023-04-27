@@ -50,7 +50,7 @@ namespace MarsProjectQA.Pages
             addNewButton.Click();
 
 
-            Wait.WaitToBeVisible(driver, "XPath", "//input[@placeholder='Add Skill']", 10);
+            //Wait.WaitToBeClickable(driver, "XPath", "//input[@placeholder='Add Skill']", 10);
             IWebElement inputSkill = driver.FindElement(By.XPath("//input[@placeholder='Add Skill']"));
             inputSkill.SendKeys("breathing");
 
@@ -86,7 +86,7 @@ namespace MarsProjectQA.Pages
 
 
 
-            // Click on Education button
+            // Create Education 
 
             WebDriverWait wait2 = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 
@@ -145,7 +145,7 @@ namespace MarsProjectQA.Pages
             chooseYear.Click();
 
 
-            // Click on certification button
+            // Create Certification 
 
             IWebElement certificationButon = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));
             certificationButon.Click();
@@ -193,7 +193,7 @@ namespace MarsProjectQA.Pages
 
 
 
-            //Click on Languages button
+            // Create Languages 
 
             IWebElement Languageesbutton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
             Languageesbutton.Click();
@@ -236,7 +236,7 @@ namespace MarsProjectQA.Pages
 
 
             IWebElement newSkill = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[1]"));
-            return newSkill.Text;                               //*[@id="account-profile-section"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[2]/tr/td[1]
+            return newSkill.Text;                              
         }
 
 
@@ -262,7 +262,7 @@ namespace MarsProjectQA.Pages
         public string getCertification(IWebDriver driver)
         {
 
-            IWebElement certificationButon = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));
+            IWebElement certificationButon = driver.FindElement(By.XPath("//a[@class=\"item\" and @data-tab=\"fourth\"]"));  ////*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]
             certificationButon.Click();
             IWebElement newCertification = driver.FindElement(By.XPath("//td[normalize-space()='pdf']"));
             return newCertification.Text;
@@ -273,75 +273,86 @@ namespace MarsProjectQA.Pages
 
         // EDIT Certification
 
-        public void editCertification(IWebDriver driver)
+        public void EditCertification(IWebDriver driver)
         {
 
-            //Wait.WaitToBeClickable(driver, "XPath", "//a[normalize-space()='Certifications']", 10);
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]", 10);
 
-            IWebElement certificationButton = driver.FindElement(By.XPath("//a[normalize-space()='Certifications']"));
+            IWebElement certificationButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));
             certificationButton.Click();
 
-            IWebElement updateCertification = driver.FindElement(By.XPath("//tbody[1]/tr[1]/td[4]/span[1]/i[1]"));
-            updateCertification.Click();
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr[last()]/td[4]/span[1]/i", 10);
+            IWebElement updateCertification = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr[last()]/td[4]/span[1]/i"));
 
-            IWebElement aword = driver.FindElement(By.XPath("//input[@placeholder='Certificate or Award']"));
-            aword.Clear();
 
-            aword.SendKeys("NetRiders Challenge 2012");
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[1]/div/input", 10);
+            IWebElement CertificateOrAward = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[1]/div/input"));
+            CertificateOrAward.Clear();
 
-            IWebElement selectYear = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/div/div[3]/select"));
-            selectYear.Click();
-            IWebElement selectYear1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/div/div[3]/select/option[11]"));
-            selectYear1.Click();
-            IWebElement certificationFrom = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/div/div[2]/input"));
+            CertificateOrAward.SendKeys("NetRiders  2012");
+
+
+            Wait.WaitToBeClickable(driver, "XPath", "//input[contains(@value, 'html')]", 10);
+            IWebElement certificationFrom = driver.FindElement(By.XPath("//input[contains(@value, 'html')]"));
             certificationFrom.Clear();
             certificationFrom.SendKeys("html");
 
+            Wait.WaitToBeClickable(driver, "XPath", "//select[contains(@class , 'ui fluid dropdown')]", 10);
+            IWebElement certificationYearSelect = driver.FindElement(By.XPath("//select[contains(@class , 'ui fluid dropdown')]"));
+            certificationYearSelect.Click();
+            Wait.WaitToBeClickable(driver, "XPath", "//option[contains(@value , '2014')]", 10);
+            IWebElement selected2014 = driver.FindElement(By.XPath("//option[contains(@value , '2014')]"));
+            selected2014.Click();
+            
 
 
-
-            IWebElement updateButton = driver.FindElement(By.XPath("//input[@value='Update']"));
-            updateButton.Click();
+            
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody[1]/tr/td/div/span/input[1]", 10);
+            IWebElement updateCertificationButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody[1]/tr/td/div/span/input[1]"));
+            updateCertificationButton.Click();
+            
+            
 
         }
 
         public string updatedCertification(IWebDriver driver)
         {
-            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]", 10);
-            IWebElement certificationButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));
+            Wait.WaitToBeClickable(driver, "XPath", "//a[contains(@class , 'item active')]", 10);
+            IWebElement certificationButton = driver.FindElement(By.XPath("//a[contains(@class , 'item active')]"));
             certificationButton.Click();
 
-            //// Get table xpath
-            //var elemTable = driver.FindElement(By.XPath("//td[normalize-space()='NetRiders Challenge 2012"));
-            //// Fetch all table rows
-            //List<IWebElement> lstTrElem = new List<IWebElement>(elemTable.FindElements(By.TagName("tr")));
-            //String strRowData = "";
-            //// Looping through table rows
-            //foreach (var elemTr in lstTrElem)
-            //{
-            //    // Get/access to all columns
-            //    List<IWebElement> lstTdElem = new List<IWebElement>(elemTr.FindElements(By.TagName("td")));
-            //    if (lstTdElem.Count > 0)
-            //    {
-            //        if (lstTdElem[0].Text == "NetRiders Challenge 2012")
-            //        {
-            //            //Click the edit button
-            //            List<IWebElement> btn = new List<IWebElement>(lstTdElem[2].FindElements(By.XPath("span")));
-            //            btn[0].Click();
-            //        }
-            //    }
-            //    else
-            //    {
-            //        strRowData = String.Empty;
-            //    }
-            //    strRowData = String.Empty;
-            //}
+            //    //// Get table xpath
+            //    //var elemTable = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table"));
+            //    //// Fetch all table rows
+            //    //List<IWebElement> lstTrElem = new List<IWebElement>(elemTable.FindElements(By.TagName("tr")));
+            //    //String strRowData = "";
+            //    //// Looping through table rows
+            //    //foreach (var elemTr in lstTrElem)
+            //    //{
+            //    //    // Get/access to all columns
+            //    //    List<IWebElement> lstTdElem = new List<IWebElement>(elemTr.FindElements(By.TagName("td")));
+            //    //    if (lstTdElem.Count > 0)
+            //    //    {
+            //    //        if (lstTdElem[0].Text == "NetRiders Challenge 2012")
+            //    //        {
+            //    //            //Click the edit button
+            //    //            List<IWebElement> btn = new List<IWebElement>(lstTdElem[2].FindElements(By.XPath("span")));
+            //    //            btn[0].Click();
+            //    //        }
+            //    //    }
+            //    //    else
+            //    //    {
+            //    //        strRowData = String.Empty;
+            //    //    }
+            //    //    strRowData = String.Empty;
 
 
 
 
-            IWebElement certification = driver.FindElement(By.XPath("//td[normalize-space()='NetRiders Challenge 2012']"));
+
+            IWebElement certification = driver.FindElement(By.XPath("//input[contains(@placeholder ,'Certificate or Award')]"));
             return certification.Text;
+
 
 
         }
@@ -493,8 +504,9 @@ namespace MarsProjectQA.Pages
             IWebElement clickskillsButton = driver.FindElement(By.XPath("//a[@class='item active']"));
             clickskillsButton.Click();
 
-            //Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td", 10);
-            IWebElement deletedNewSkills = driver.FindElement(By.XPath("//*[@id=\\\"listing-management-section\\\"]/div[2]/div/div/table/tbody/tr[2]/td[8]/div/button[3]"));
+            //Wait.WaitToBeClickable(driver, "XPath", "//*[@id="account-profile-section"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[2]/tr/td[3]/span[2]/i", 10);
+            IWebElement deletedNewSkills = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[2]/tr/td[3]/span[2]/i"));
+               
 
         }
         public string lastDeleteSkill(IWebDriver driver)

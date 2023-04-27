@@ -12,7 +12,7 @@ namespace MarsProjectQA.Pages
     public class SignInPage : CommonDriver
     {
 
-        //WebDriverWait wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+        WebDriverWait wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
 
         public void SignInActions(IWebDriver driver)
         {
@@ -21,10 +21,9 @@ namespace MarsProjectQA.Pages
 
             // Enter valid username in TextBox
 
-            WebDriverWait wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            
 
-            wait1.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//input[@placeholder='Email address']")));
-            IWebElement userName = driver.FindElement(By.XPath("//input[@placeholder='Email address']"));
+            IWebElement userName = driver.FindElement(By.XPath("//input[contains(@name , 'email')]"));
             
             userName.SendKeys("ivica.cuncic@gmail.com");
             Thread.Sleep(2000);
