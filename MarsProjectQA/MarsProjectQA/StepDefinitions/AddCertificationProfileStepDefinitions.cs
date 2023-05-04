@@ -60,7 +60,7 @@ namespace MarsProjectQA.StepDefinitions
         public void ThenThenANewCertificationShouldBeEdited()
         {
             string editedCertification = profilePageObj.updatedCertification(driver);
-            Assert.That(editedCertification == "NetRiders  2012", "Actual code and expected code do not match.");
+            Assert.That(editedCertification == "NetRiders2012", "Actual code and expected code do not match.");
         }
         [When(@"I deleted certification")]
         public void WhenIDeletedCertification()

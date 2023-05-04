@@ -20,6 +20,10 @@ namespace MarsProjectQA.Utilities
         public static void BeforeTestRun()
         {
             driver = new ChromeDriver();
+           
+            
+           
+            
         }
 
         //[AfterTestRun]

@@ -6,6 +6,7 @@ using OpenQA.Selenium;
 
 namespace POM.Tests
 {
+    [TestFixture]
     class profilePageTests : CommonDriver
     {
         ProfilePage profilePageObj = new ProfilePage();
@@ -25,19 +26,19 @@ namespace POM.Tests
 
             //driver.Close();
         }
-        [Test , Order(2)]
+        [Test, Order(2)]
         public void CreateProfilePage()
         {
-            
+
             profilePageObj.CreateProfile(driver);
-            
+
         }
-        
-        [Test , Order(3)]
-        public void EditProfilePage() 
+
+        [Test, Order(3)]
+        public void EditProfilePage()
         {
 
-            
+
             profilePageObj.EditCertification(driver);
             profilePageObj.editLanguage(driver);
             profilePageObj.editedSkills(driver);
