@@ -74,14 +74,14 @@ namespace MarsProjectQA.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("ADD Skills to my profile")]
+        [NUnit.Framework.DescriptionAttribute("01)ADD Skills to my profile")]
         [NUnit.Framework.CategoryAttribute("tag1")]
-        public void ADDSkillsToMyProfile()
+        public void _01ADDSkillsToMyProfile()
         {
             string[] tagsOfScenario = new string[] {
                     "tag1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ADD Skills to my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01)ADD Skills to my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -106,12 +106,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Edit Skills to my profile")]
-        public void EditSkillsToMyProfile()
+        [NUnit.Framework.DescriptionAttribute("02)Edit Skills to my profile")]
+        public void _02EditSkillsToMyProfile()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Skills to my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02)Edit Skills to my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 10
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -136,12 +136,12 @@ testRunner.Then("Then the new skill should be edited successfully", ((string)(nu
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Delete Skills to my profile")]
-        public void DeleteSkillsToMyProfile()
+        [NUnit.Framework.DescriptionAttribute("03)Delete Skills to my profile")]
+        public void _03DeleteSkillsToMyProfile()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete Skills to my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03)Delete Skills to my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

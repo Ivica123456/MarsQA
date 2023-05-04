@@ -75,14 +75,14 @@ namespace MarsProjectQA.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("1Add certification on my profile")]
+        [NUnit.Framework.DescriptionAttribute("01)Add certification on my profile")]
         [NUnit.Framework.CategoryAttribute("tag1")]
-        public void _1AddCertificationOnMyProfile()
+        public void _01AddCertificationOnMyProfile()
         {
             string[] tagsOfScenario = new string[] {
                     "tag1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1Add certification on my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01)Add certification on my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -107,12 +107,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("2Edit certification on my profile")]
-        public void _2EditCertificationOnMyProfile()
+        [NUnit.Framework.DescriptionAttribute("02)Edit certification on my profile")]
+        public void _02EditCertificationOnMyProfile()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2Edit certification on my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02)Edit certification on my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -137,12 +137,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("3Delete certification on my profile")]
-        public void _3DeleteCertificationOnMyProfile()
+        [NUnit.Framework.DescriptionAttribute("03)Delete certification on my profile")]
+        public void _03DeleteCertificationOnMyProfile()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3Delete certification on my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03)Delete certification on my profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 17
  this.ScenarioInitialize(scenarioInfo);
 #line hidden

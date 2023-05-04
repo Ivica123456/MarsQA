@@ -34,15 +34,17 @@ namespace MarsProjectQA.StepDefinitions
         public void WhenIAddANewCertification()
         {
             ProfilePage profilePageObj = new ProfilePage();
-            profilePageObj.CreateProfile(driver);
+            // Replace function call of CreateProfile with AddNewCertificate
+             profilePageObj.AddCertificate(driver);
+            //profilePageObj.CreateProfile(driver);
         }
 
         [Then(@"Then the new certification should be added succesfully")]
         public void ThenThenTheNewCertificationShouldBeAddedSuccesfully()
         {
             string addcertification = profilePageObj.getCertification(driver);
-            Assert.That(addcertification == "pdf" , "Actual code and expected code do not match.");
-
+            //Assert.That(addcertification == "pdf" , "Actual code and expected code do not match.");
+            Assert.AreEqual("NetRiders Challenge 2011", addcertification, "Actual and expected result are not equal.");
         }
        
         
@@ -76,6 +78,8 @@ namespace MarsProjectQA.StepDefinitions
             string lastDelete = profilePageObj.DeletedCertification(driver);
             Assert.That(lastDelete != "NetRiders 2012" , "Actual code and expected code do not match.");
         }
+
+
 
 
     }

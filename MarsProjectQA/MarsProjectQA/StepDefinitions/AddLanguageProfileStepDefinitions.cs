@@ -40,9 +40,9 @@ namespace MarsProjectQA.StepDefinitions
         [When(@"I add a new Language")]
         public void WhenIAddANewLanguage()
         {
-
-            ProfilePage profilePageObj = new ProfilePage();
-            profilePageObj.CreateProfile(driver);
+            //Remove because it already declared 
+            //ProfilePage profilePageObj = new ProfilePage();
+            profilePageObj.Addlanguage(driver);
         }
 
         [Then(@"Then new language should be added successfully")]
@@ -50,7 +50,7 @@ namespace MarsProjectQA.StepDefinitions
         {
             string language = profilePageObj.newLanguage(driver);
 
-            Assert.That(language == "English", "Actual code and expected code do not match.");
+            Assert.AreEqual("English",language, "Actual and expected result are not equal.");
         }
         [When(@"I edited a new language")]
         public void WhenIEditedANewLanguage()
@@ -62,7 +62,7 @@ namespace MarsProjectQA.StepDefinitions
         public void ThenThenANewLanguageShouldBeEditedSuccessfully()
         {
             string editedLanguage = profilePageObj.editedLanguage1(driver);
-            Assert.That(editedLanguage == "Italian", "Actual code and expected code do not match.");
+            Assert.AreEqual("Italian",editedLanguage, "Actual and expected result are not equal.");
         }
         [When(@"I deleted a language")]
         public void WhenIDeletedALanguage()

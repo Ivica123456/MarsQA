@@ -10,17 +10,17 @@ using TechTalk.SpecFlow;
 
 namespace MarsProjectQA.Utilities
 {
-    [Binding]
     public class CommonDriver
     {
 
-        public static IWebDriver driver;
+        public static IWebDriver driver = new ChromeDriver();
 
-        [BeforeTestRun]
-        public static void BeforeTestRun()
+        [AfterScenario]
+        public void CleanUp()
         {
-            driver = new ChromeDriver();
+            //driver.Dispose();
         }
+
 
         //[AfterTestRun]
         //public static void AfterTestRun()

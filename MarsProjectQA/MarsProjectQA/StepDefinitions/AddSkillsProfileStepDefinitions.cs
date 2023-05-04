@@ -44,7 +44,7 @@ namespace MarsProjectQA.StepDefinitions
         public void WhenIAddNewSkill()
         {
 
-            profilePageObj.CreateProfile(driver);
+            profilePageObj.AddSkill(driver);
 
         }
 
@@ -52,7 +52,7 @@ namespace MarsProjectQA.StepDefinitions
         public void ThenThenNewSkillShouldBeAddedSuccessfully()
         {
             string skill = profilePageObj.getSkill(driver);
-            Assert.That(skill == "breathing", "Actual code and expected code do not match.");
+            Assert.AreEqual("breathing", skill, "Actual code and expected code do not match.");
 
         }
         [When(@"I edited a new skill")]
@@ -64,7 +64,7 @@ namespace MarsProjectQA.StepDefinitions
         public void ThenThenTheNewSkillShouldBeEditedSuccessfully()
         {
             string newEdit = profilePageObj.newEditSkills(driver);
-            Assert.That(newEdit == "Computer skills", "Actual code and expected code do not match.");
+            Assert.AreEqual("Computer skills",newEdit,"Actual code and expected code do not match.");
         }
         [When(@"I deleted a new skill")]
         public void WhenIDeletedANewSkill()

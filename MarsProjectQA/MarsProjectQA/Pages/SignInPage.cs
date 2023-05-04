@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace MarsProjectQA.Pages
 {
-    public class SignInPage : CommonDriver
+    public class SignInPage 
     {
 
-        WebDriverWait wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+        //WebDriverWait wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
 
         public void SignInActions(IWebDriver driver)
         {

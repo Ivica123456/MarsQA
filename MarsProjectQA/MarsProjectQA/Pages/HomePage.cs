@@ -10,7 +10,7 @@ using MarsProjectQA.Utilities;
 
 namespace MarsProjectQA.Pages
 {
-    public class HomePage : CommonDriver
+    public class HomePage 
     {
      public void GoToSingPage(IWebDriver driver)
         {
@@ -24,7 +24,7 @@ namespace MarsProjectQA.Pages
             driver.Navigate().GoToUrl("http://localhost:5000/Home");
             driver.Manage().Window.Maximize();
             Thread.Sleep(1000);
-
+            
 
 
 
