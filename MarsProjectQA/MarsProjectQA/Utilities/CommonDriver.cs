@@ -13,22 +13,13 @@ namespace MarsProjectQA.Utilities
     public class CommonDriver
     {
 
-        public static IWebDriver driver = new ChromeDriver();
+        public IWebDriver driver = new ChromeDriver();
 
         [AfterScenario]
         public void CleanUp()
         {
-            //driver.Dispose();
+            driver.Dispose();
         }
-
-
-        //[AfterTestRun]
-        //public static void AfterTestRun()
-        //{
-        //    driver.Quit();
-        //}
-
-
 
     }
 }
