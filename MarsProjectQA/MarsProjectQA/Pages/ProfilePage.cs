@@ -17,25 +17,25 @@ namespace MarsProjectQA.Pages
 
         public void CreateProfile(IWebDriver driver)
         {
-            IWebElement description = driver.FindElement(By.XPath("//h3[@class='ui dividing header']//i[@class='outline write icon']"));
-            description.Click();
+            //IWebElement description = driver.FindElement(By.XPath("//h3[@class='ui dividing header']//i[@class='outline write icon']"));
+            //description.Click();
 
 
 
-            //Write Description
+            ////Write Description
 
-            IWebElement putDescription = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea"));
-            putDescription.Clear();
-            Thread.Sleep(9000);
-            putDescription.SendKeys("An organized candidate is a detail-oriented person an employer can trust to meet deadlines.");
+            //IWebElement putDescription = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea"));
+            //putDescription.Clear();
+            //Thread.Sleep(9000);
+            //putDescription.SendKeys("An organized candidate is a detail-oriented person an employer can trust to meet deadlines.");
 
 
 
             //Click save button on Description
 
-            Wait.WaitToBeClickable(driver, "XPath", "//button[@type='button']", 10);
-            IWebElement saveButton = driver.FindElement(By.XPath("//button[@type='button']"));
-            saveButton.Click();
+            //Wait.WaitToBeClickable(driver, "XPath", "//button[@type='button']", 10);
+            //IWebElement saveButton = driver.FindElement(By.XPath("//button[@type='button']"));
+            //saveButton.Click();
 
 
 
@@ -427,7 +427,7 @@ namespace MarsProjectQA.Pages
 
 
 
-            IWebElement lastedit = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr[last()]/td[1]"));
+            IWebElement lastedit = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[2]/tr[]/td[1]"));
             return lastedit.Text;
 
             
@@ -513,21 +513,29 @@ namespace MarsProjectQA.Pages
 
             //Wait.WaitToBeClickable(driver, "XPath", "//*[@id="account-profile-section"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[1]", 10);
             IWebElement deletedNewSkills = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[1]"));
-            driver.Navigate().GoToUrl("http://localhost:5000/Account/Profile");
-            driver.Navigate().Refresh();
-            
+            //driver.Navigate().GoToUrl("http://localhost:5000/Account/Profile");
+            //driver.Navigate().Refresh();
+            //IWebElement clickskillsButton1 = driver.FindElement(By.XPath("//a[@class='item active']"));
+            //clickskillsButton1.Click();
+
         }
         public string lastDeleteSkill(IWebDriver driver)
         {
-            Wait.WaitToBeClickable(driver, "XPath", "//a[@class='item active']", 10);
-            IWebElement clickskillsButton = driver.FindElement(By.XPath("//a[@class='item active']"));
+            driver.Navigate().GoToUrl("http://localhost:5000/Account/Profile");
+            driver.Navigate().Refresh();
+
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]", 10);
+            IWebElement clickskillsButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]"));
             clickskillsButton.Click();
 
-            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i", 10);
-            IWebElement lastDelete = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i"));
+
+
+
+            Wait.WaitToBeClickable(driver, "XPath", "/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]", 10);
+            IWebElement lastDelete = driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]"));
             return lastDelete.Text;
 
-        }
+        }          
 
 
 
