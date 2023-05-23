@@ -3,10 +3,7 @@
 A short summary of the feature
 
 @tag1
-Scenario: ADD education details on my profile
-	Given I lunch and log into MarsQA protal successfully
-	When I add a new education details 
-	Then The new education details should be added successfully
+
 Scenario: ADD Availability type on my profile
     Given  I lunch and log into MarsQA protal successfully
 	When I select availability type

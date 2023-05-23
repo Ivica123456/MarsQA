@@ -8,38 +8,96 @@ using System.Threading.Tasks;
 using MarsProjectQA.Utilities;
 using System.Reflection.Emit;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography.X509Certificates;
+using SeleniumExtras.WaitHelpers;
 
 namespace MarsProjectQA.Pages
 {
     public class ProfilePage : CommonDriver
     {
-        WebDriverWait wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+        WebDriverWait wait1;
 
-        public void CreateProfile(IWebDriver driver)
+        public ProfilePage()
         {
-            //IWebElement description = driver.FindElement(By.XPath("//h3[@class='ui dividing header']//i[@class='outline write icon']"));
-            //description.Click();
+
+            wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+
+        }
 
 
 
-            ////Write Description
-
-            //IWebElement putDescription = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea"));
-            //putDescription.Clear();
-            //Thread.Sleep(9000);
-            //putDescription.SendKeys("An organized candidate is a detail-oriented person an employer can trust to meet deadlines.");
+        public void CreateDescription()
+        {
+            IWebElement description1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/h3/span"));
+            description1.Click();
 
 
 
-            //Click save button on Description
-
-            //Wait.WaitToBeClickable(driver, "XPath", "//button[@type='button']", 10);
-            //IWebElement saveButton = driver.FindElement(By.XPath("//button[@type='button']"));
-            //saveButton.Click();
 
 
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(9));
+            IWebElement putDescription = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea")));
+            IWebElement putDescription1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea"));
+            Thread.Sleep(3000);
+            putDescription.Clear();
+            Thread.Sleep(3000);
+            putDescription.SendKeys("nothing");
+
+
+
+
+            // Click save button on Description
+
+            Wait.WaitToBeClickable(driver, "XPath", "//button[@type='button']", 10);
+            IWebElement saveButton = driver.FindElement(By.XPath("//button[@type='button']"));
+            saveButton.Click();
+
+        }
+        public string getAddDescription()
+        {
+            IWebElement putDescription = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span"));
+            return putDescription.Text;
+        }
+
+        public void UpdateDescription(string description)
+        {
+            IWebElement description2 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/h3/span"));
+            description2.Click();
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(9));
+            IWebElement putDescription = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea")));
+            IWebElement putDescription1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea"));
+            Thread.Sleep(3000);
+            putDescription.Clear();
+            Thread.Sleep(3000);
+            putDescription.SendKeys(description);
+            Wait.WaitToBeClickable(driver, "XPath", "//button[@type='button']", 10);
+            IWebElement saveButton = driver.FindElement(By.XPath("//button[@type='button']"));
+            saveButton.Click();
+
+        }
+        public string getUpdatedDescription()
+        {
+            IWebElement putDescription = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span"));
+            return putDescription.Text;
+
+
+
+        }
+
+
+
+
+
+
+
+
+        public void AddSkill()
+        {
 
             //Click on SkillS Button
+
 
             IWebElement skillsButton = driver.FindElement(By.XPath("//a[normalize-space()='Skills']"));
             skillsButton.Click();
@@ -77,13 +135,14 @@ namespace MarsProjectQA.Pages
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/span/input[1]", 10);
             IWebElement saveSkillButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/span/input[1]"));
             saveSkillButton.Click();
+        }
 
 
 
 
 
-
-
+        public void AddEducation(string Country, string University, string Title, string Degree, string Graduation)
+        {
 
 
             // Create Education 
@@ -102,9 +161,11 @@ namespace MarsProjectQA.Pages
 
 
             // Input College/University name
-
+            
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[1]/input", 10);
             IWebElement universityName = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[1]/input"));
-            universityName.SendKeys("CCNP Cisco EduNet");
+            universityName.Clear();
+            universityName.SendKeys(University);
 
 
             // Click on Country of College/University dropdown
@@ -112,10 +173,11 @@ namespace MarsProjectQA.Pages
             IWebElement universityDropdown = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[2]/select"));
             universityDropdown.Click();
 
-            // Select Country of College/University dropdown
+            //// Select Country of College/University dropdown
 
-            IWebElement countryCollege = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[2]/select/option[36]"));
-            countryCollege.Click();
+            IWebElement countryCollegeSelect = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[2]/select"));
+            SelectElement selectElementSelectCountry = new(countryCollegeSelect);
+            selectElementSelectCountry.SelectByValue(Country);
 
 
             // Click on title dropdown
@@ -126,23 +188,79 @@ namespace MarsProjectQA.Pages
 
             // Select title
 
-            IWebElement selectTitle = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[1]/select/option[7]"));
-            selectTitle.Click();
+            IWebElement selectTitle = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[1]/select"));
+            SelectElement selectElementSelectTitle = new(selectTitle);
+            selectElementSelectTitle.SelectByValue(Title);
 
             // Input degree
 
             IWebElement inputDegree = driver.FindElement(By.XPath("//input[@placeholder='Degree']"));
-            inputDegree.SendKeys("Pro");
+            inputDegree.Clear();
+            inputDegree.SendKeys(Degree);
 
             // Select Year of graduation dropdown
 
-            IWebElement YearOfgraduation = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[3]/select"));
+            IWebElement YearOfgraduation = driver.FindElement(By.XPath("//select[starts-with(@class,\"ui dropdown\") and contains(@name,\"yearOfGraduation\")]"));
             YearOfgraduation.Click();
 
             // Choose year in dropdown list
+            Wait.WaitToBeClickable(driver, "XPath", "//select[starts-with(@class,\"ui dropdown\") and contains(@name,\"yearOfGraduation\")]", 10);
+            IWebElement selectYear = driver.FindElement(By.XPath("//select[starts-with(@class,\"ui dropdown\") and contains(@name,\"yearOfGraduation\")]"));
+            SelectElement selectElementSelectYear = new(selectYear);
 
-            IWebElement chooseYear = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[3]/select/option[12]"));
-            chooseYear.Click();
+            selectElementSelectYear.SelectByValue(Graduation);
+            Thread.Sleep(2000);
+            selectYear.Click();
+            /*Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[3]/div/input[1]", 10)*/
+
+            IWebElement addnewButtun = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[3]/div/input[1]"));
+            addnewButtun.Click();
+            Wait.WaitToBeVisible(driver, "CssSelector", ".ns-box-inner", 5);
+
+            //driver.Navigate().GoToUrl("http://localhost:5000/Account/Profile");
+            //driver.Navigate().Refresh();
+            //IWebElement educationButton1 = driver.FindElement(By.XPath("//a[normalize-space()='Education']"));
+            //educationButton1.Click();
+
+
+        }
+
+
+        public string GetUpdatedUniversityName()
+        {
+            IWebElement actualUniversityName = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[2]"));
+            return actualUniversityName.Text;
+        }
+        public string GetUpdatedCountryCollegeSelect()
+        {
+            IWebElement actualCountryCollegeSelect = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[1]"));
+            return actualCountryCollegeSelect.Text;                               
+        }
+        public string GetEducationTitle()
+        {
+            IWebElement actualGetEducationTitle = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[3]"));
+            return actualGetEducationTitle.Text;
+
+        }
+        public string GetEducationDegree()
+        {
+            IWebElement actualGetEducationDegree = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[4]"));
+            return actualGetEducationDegree.Text;
+
+        }
+        public string GetEducationSelectedYear()
+        {
+            IWebElement actualSelectedYear = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[5]"));
+            return actualSelectedYear.Text;
+
+        }
+
+
+
+
+        public void AddCertification()
+        {
+
 
 
             // Create Certification 
@@ -186,8 +304,11 @@ namespace MarsProjectQA.Pages
             IWebElement ADDButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[3]/input[1]"));
             ADDButton.Click();
 
+        }
 
 
+        public void AddLanguages()
+        {
 
 
 
@@ -227,11 +348,11 @@ namespace MarsProjectQA.Pages
 
 
         }
-        public string GetDescription(IWebDriver driver)
+        public string GetDescription()
         {
-            
-            
-            
+
+
+
             IWebElement actualDescription = driver.FindElement(By.XPath("//span[contains(text(),'An organized candidate is a detail-oriented person')]"));
             return actualDescription.Text;
 
@@ -239,7 +360,7 @@ namespace MarsProjectQA.Pages
         }
 
 
-        public string getSkill(IWebDriver driver)
+        public string getSkill()
         {
 
 
@@ -259,23 +380,23 @@ namespace MarsProjectQA.Pages
 
 
 
-        public string newLanguage(IWebDriver driver)
+        public string newLanguage()
         {
-            
+
             IWebElement Languagebutton = driver.FindElement(By.XPath("//a[contains(@class,'item active')]"));
             Languagebutton.Click();
 
-            IWebElement updateLanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr[last()]/td[1]"));
+            IWebElement updateLanguage = driver.FindElement(By.XPath("//div[@id=\"account-profile-section\"]//form//tbody//td[1]"));
             return updateLanguage.Text;
 
 
 
 
         }
-        public string getCertification(IWebDriver driver)
+        public string getCertification()
         {
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]", 10);
-            IWebElement certificationButon = driver.FindElement(By.XPath("//a[@class=\"item\" and @data-tab=\"fourth\"]"));  ////*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]
+            IWebElement certificationButon = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));  ////*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]
             certificationButon.Click();
             IWebElement newCertification = driver.FindElement(By.XPath("//td[normalize-space()='pdf']"));
             return newCertification.Text;
@@ -286,7 +407,7 @@ namespace MarsProjectQA.Pages
 
         // EDIT Certification
 
-        public void EditCertification(IWebDriver driver)
+        public void EditCertification()
         {
 
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]", 10);
@@ -336,7 +457,7 @@ namespace MarsProjectQA.Pages
 
         }
 
-        public string updatedCertification(IWebDriver driver)
+        public string updatedCertification()
         {
             Wait.WaitToBeClickable(driver, "XPath", "//a[contains(@class , 'item active')]", 10);
             IWebElement certificationButton = driver.FindElement(By.XPath("//a[contains(@class , 'item active')]"));
@@ -346,11 +467,11 @@ namespace MarsProjectQA.Pages
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody[1]/tr/td[1]", 10);
             IWebElement certification1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody[1]/tr/td[1]"));
             return certification1.Text;
-           
+
 
 
         }
-        public void deleteCertification(IWebDriver driver)
+        public void deleteCertification()
         {
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]", 5);
             IWebElement certificationButon1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));
@@ -365,7 +486,7 @@ namespace MarsProjectQA.Pages
 
 
         }
-        public string DeletedCertification(IWebDriver driver)
+        public string DeletedCertification()
         {
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]", 5);
             IWebElement certificationButon1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));
@@ -383,42 +504,49 @@ namespace MarsProjectQA.Pages
         // Edit Language
 
 
-        public void editLanguage(IWebDriver driver)
+        public void editLanguage()
         {
-            WebDriverWait wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            WebDriverWait wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
             wait1.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]")));
 
 
             IWebElement Languagesbutton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
             Languagesbutton.Click();
-
-            IWebElement editButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[1]/i"));
+            Wait.WaitToBeClickable(driver, "XPath", "//span[contains(@class,\"button\")]", 10);
+            IWebElement editButton = driver.FindElement(By.XPath("//span[contains(@class,\"button\")]"));
             editButton.Click();
-
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input", 10);
             IWebElement editLanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
+
             editLanguage.Clear();
+            Thread.Sleep(2000);
             editLanguage.SendKeys("Italian");
-            
+            Thread.Sleep(2000);  
             IWebElement selectLanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select"));
             selectLanguage.Click();
-           
+
             IWebElement LanguageLevel = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select/option[2]"));
             LanguageLevel.Click();
 
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]", 10);
             IWebElement updateButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
-            
+
             updateButton.Click();
             Wait.WaitToBeVisible(driver, "CssSelector", ".ns-box-inner", 5);
 
+            driver.Navigate().GoToUrl("http://localhost:5000/Account/Profile");
+            driver.Navigate().Refresh();
+
+            IWebElement Languagesbutton1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
+            Languagesbutton1.Click();
 
 
 
 
 
         }
-        public string editedLanguage1(IWebDriver driver)
+        public string editedLanguage1()
         {
 
 
@@ -427,13 +555,18 @@ namespace MarsProjectQA.Pages
 
 
 
-            IWebElement lastedit = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[2]/tr[]/td[1]"));
+            IWebElement lastedit = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
             return lastedit.Text;
+            //*[@id="account-profile-section"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input
 
-            
 
         }
-        public void deletedLanguage1(IWebDriver driver)
+       
+
+
+
+
+        public void deletedLanguage1()
         {
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]", 10);
             IWebElement Languageesbutton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
@@ -443,7 +576,7 @@ namespace MarsProjectQA.Pages
             languageRemoved.Click();
 
         }
-        public string getdeleteLanguage(IWebDriver driver)
+        public string getdeleteLanguage()
 
         {
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]", 10);
@@ -459,7 +592,7 @@ namespace MarsProjectQA.Pages
         // Edit Skills
 
 
-        public void editedSkills(IWebDriver driver)
+        public void editedSkills()
         {
 
             Wait.WaitToBeClickable(driver, "XPath", "//a[contains(@data-tab,'second')]   ", 10);
@@ -493,7 +626,7 @@ namespace MarsProjectQA.Pages
 
 
         }
-        public string newEditSkills(IWebDriver driver)
+        public string newEditSkills()
         {
 
 
@@ -506,7 +639,7 @@ namespace MarsProjectQA.Pages
 
 
         }
-        public void deleteNewSkills(IWebDriver driver)
+        public void deleteNewSkills()
         {
             IWebElement clickskillsButton = driver.FindElement(By.XPath("//a[@class='item active']"));
             clickskillsButton.Click();
@@ -519,7 +652,7 @@ namespace MarsProjectQA.Pages
             //clickskillsButton1.Click();
 
         }
-        public string lastDeleteSkill(IWebDriver driver)
+        public string lastDeleteSkill()
         {
             driver.Navigate().GoToUrl("http://localhost:5000/Account/Profile");
             driver.Navigate().Refresh();

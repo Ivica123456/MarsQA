@@ -11,14 +11,16 @@ namespace MarsProjectQA.StepDefinitions
     [Binding]
     public class AddSkillsProfileStepDefinitions : CommonDriver
     {
-
+        HomePage homePageObj;
         ProfilePage profilePageObj;
+        SignInPage signInPageObj;
 
          public AddSkillsProfileStepDefinitions()
          {
-
+            homePageObj = new HomePage();
             profilePageObj = new ProfilePage();
-         }
+            signInPageObj = new SignInPage();
+        }
 
 
 
@@ -31,12 +33,12 @@ namespace MarsProjectQA.StepDefinitions
 
             //Home Page Object initalization and definition
 
-            HomePage homePageObj = new HomePage();
+            
             homePageObj.GoToSingPage(driver);
 
             //SignIn Page Object initalization and definition
 
-            SignInPage signInPageObj = new SignInPage();
+            
             signInPageObj.SignInActions(driver);
         }
 
@@ -44,37 +46,37 @@ namespace MarsProjectQA.StepDefinitions
         public void WhenIAddNewSkill()
         {
 
-            profilePageObj.CreateProfile(driver);
+            profilePageObj.getSkill();
 
         }
 
         [Then(@"Then new Skill should be added successfully")]
         public void ThenThenNewSkillShouldBeAddedSuccessfully()
         {
-            string skill = profilePageObj.getSkill(driver);
+            string skill = profilePageObj.getSkill();
             Assert.That(skill == "breathing", "Actual code and expected code do not match.");
 
         }
         [When(@"I edited a new skill")]
         public void WhenIEditedANewSkill()
         {
-            profilePageObj.editedSkills(driver);
+            profilePageObj.editedSkills();
         }
         [Then(@"Then the new skill should be edited successfully")]
         public void ThenThenTheNewSkillShouldBeEditedSuccessfully()
         {
-            string newEdit = profilePageObj.newEditSkills(driver);
+            string newEdit = profilePageObj.newEditSkills();
             Assert.That(newEdit == "Computer skills", "Actual code and expected code do not match.");
         }
         [When(@"I deleted a new skill")]
         public void WhenIDeletedANewSkill()
         {
-            profilePageObj.deleteNewSkills(driver);
+            profilePageObj.deleteNewSkills();
         }
         [Then(@"Then a new skill should be deleted successfully")]
         public void ThenThenANewSkillShouldBeDeletedSuccessfully()
         {
-            string deletedSkills1 = profilePageObj.lastDeleteSkill(driver);
+            string deletedSkills1 = profilePageObj.lastDeleteSkill();
             Assert.That(deletedSkills1 != "Computer skills", "Actual code and expected code do not match.");
         }
 

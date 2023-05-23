@@ -21,9 +21,9 @@ namespace MarsProjectQA.Pages
 
             // Enter valid username in TextBox
 
-            
 
-            IWebElement userName = driver.FindElement(By.XPath("//input[contains(@name , 'email')]"));
+            Wait.WaitToBeClickable(driver, "XPath", "//input[starts-with(@name,\"email\") and contains(@placeholder,\"Email address\")]", 10);
+            IWebElement userName = driver.FindElement(By.XPath("//input[starts-with(@name,\"email\") and contains(@placeholder,\"Email address\")]"));
             
             userName.SendKeys("ivica.cuncic@gmail.com");
             Thread.Sleep(2000);

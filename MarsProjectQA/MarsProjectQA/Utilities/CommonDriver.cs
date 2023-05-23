@@ -26,11 +26,14 @@ namespace MarsProjectQA.Utilities
             
         }
 
-        //[AfterTestRun]
-        //public static void AfterTestRun()
-        //{
-        //    driver.Quit();
-        //}
+        [AfterTestRun]
+        public static void AfterTestRun()
+        {
+            IWebElement delete = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[6]/span[2]"));
+            delete.Click();
+
+            driver.Dispose();
+        }
 
 
 
