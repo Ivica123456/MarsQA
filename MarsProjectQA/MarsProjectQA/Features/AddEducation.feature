@@ -10,5 +10,5 @@ Scenario Outline: I Add Education on my profile
 
 	Examples: 
 	| Country     | University | Title | Degree  | Graduation |
-	| Croatia     | EduNet     | M.A   | Diploma | 2012       |
+	| Croatia     | SEduNet     | M.B.A   | Bachalor | 2012       |
 	| New Zealand | EduNet     | M.A   | Diploma | 2023       |

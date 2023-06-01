@@ -29,10 +29,10 @@ namespace MarsProjectQA.StepDefinitions
         public void GivenILaunchAndLogIntoMarsQAPortalSuccessfully()
         {
             
-            homePageObj.GoToSingPage(driver);
+            homePageObj.GoToSingPage();
 
             
-            signInPageObj.SignInActions(driver);
+            signInPageObj.SignInActions();
 
 
 
@@ -57,7 +57,7 @@ namespace MarsProjectQA.StepDefinitions
         public void WhenIEditedANewLanguage()
         {
 
-            profilePageObj.newLanguage();
+            profilePageObj.editNewLanguage();
         }
         [Then(@"Then a new language should be edited successfully")]
         public void ThenThenANewLanguageShouldBeEditedSuccessfully()

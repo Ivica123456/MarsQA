@@ -1,4 +1,5 @@
 using MarsProjectQA.Pages;
+using MarsProjectQA.Pages.model;
 using MarsProjectQA.Utilities;
 using NUnit.Framework;
 using System;
@@ -22,10 +23,10 @@ namespace MarsProjectQA.StepDefinitions
         [Given(@"I lanch and log into MarsQA portal successfully")]
         public void GivenILanchAndLogIntoMarsQAPortalSuccessfully()
         {
-            homePageObj.GoToSingPage(driver);
+            homePageObj.GoToSingPage();
 
 
-            signInPageObj.SignInActions(driver);
+            signInPageObj.SignInActions();
         }
 
         [When(@"When I add my education including '([^']*)', '([^']*)', '([^']*)', '([^']*)','([^']*)'")]
@@ -35,21 +36,26 @@ namespace MarsProjectQA.StepDefinitions
         }
 
         [Then(@"Then I am able to see my education details including '([^']*)', '([^']*)', '([^']*)', '([^']*)','([^']*)'")]
-        public void ThenThenIAmAbleToSeeMyEducationDetailsIncluding(string Country, string University, string Title, string Degree, string Graduation)
+        public void ThenThenIAmAbleToSeeMyEducationDetailsIncluding(string country, string University, string Title, string Degree, string Graduation)
         {
-            string CountryCollegeSelectUpdate = profilePageObj.GetUpdatedCountryCollegeSelect();
-            Assert.That(CountryCollegeSelectUpdate == Country, "Actual code and expected code do not match.");
-            string UniversityNameUpdate = profilePageObj.GetUpdatedUniversityName();
-            Assert.That(UniversityNameUpdate == University, "Actual code and expected code do not match.");
-            
-            
+            EducationInfo educationInfo = profilePageObj.getEducationCountryName(country);
+            Assert.AreEqual(country, educationInfo.getCountryName());
+            EducationInfo educationInfo1 = profilePageObj.getEducationCountryName(University);
+            Assert.AreEqual(University , educationInfo.getUniversityName());
+            EducationInfo educationInfo2 = profilePageObj.getEducationCountryName(Title);
+            Assert.AreEqual(Title, educationInfo.getTitleName());
+            EducationInfo educationInfo3 = profilePageObj.getEducationCountryName(Degree);
+            Assert.AreEqual(Degree, educationInfo.getDegreeName());
+            EducationInfo educationInfo4 = profilePageObj.getEducationCountryName(Graduation);
+            Assert.AreEqual(Graduation, educationInfo.getGradutaiongName());
 
-            string EducationTitleUpdate = profilePageObj.GetEducationTitle();
-            Assert.That(EducationTitleUpdate == Title, "Actual code and expected code do not match.");
-            string EducationDegreeUpdate = profilePageObj.GetEducationDegree();
-            Assert.That(EducationDegreeUpdate == Degree, "Actual code and expected code do not match.");
-            string EducationSelectedYearUpdate = profilePageObj.GetEducationSelectedYear();
-            Assert.That(EducationSelectedYearUpdate == Graduation, "Actual code and expected code do not match.");
+
+            //string EducationTitleUpdate = profilePageObj.GetEducationTitle();
+            //Assert.That(EducationTitleUpdate == Title, "Actual code and expected code do not match.");
+            //string EducationDegreeUpdate = profilePageObj.GetEducationDegree();
+            //Assert.That(EducationDegreeUpdate == Degree, "Actual code and expected code do not match.");
+            //string EducationSelectedYearUpdate = profilePageObj.GetEducationSelectedYear();
+            //Assert.That(EducationSelectedYearUpdate == Graduation, "Actual code and expected code do not match.");
         }
     }
 }

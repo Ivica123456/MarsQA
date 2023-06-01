@@ -76,7 +76,7 @@ namespace MarsProjectQA.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("I Add Education on my profile")]
         [NUnit.Framework.CategoryAttribute("tag1")]
-        [NUnit.Framework.TestCaseAttribute("Croatia", "EduNet", "M.A", "Diploma", "2012", null)]
+        [NUnit.Framework.TestCaseAttribute("Croatia", "SEduNet", "M.B.A", "Bachalor", "2012", null)]
         [NUnit.Framework.TestCaseAttribute("New Zealand", "EduNet", "M.A", "Diploma", "2023", null)]
         public void IAddEducationOnMyProfile(string country, string university, string title, string degree, string graduation, string[] exampleTags)
         {

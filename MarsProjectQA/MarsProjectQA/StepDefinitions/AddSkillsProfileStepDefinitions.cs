@@ -34,12 +34,12 @@ namespace MarsProjectQA.StepDefinitions
             //Home Page Object initalization and definition
 
             
-            homePageObj.GoToSingPage(driver);
+            homePageObj.GoToSingPage();
 
             //SignIn Page Object initalization and definition
 
             
-            signInPageObj.SignInActions(driver);
+            signInPageObj.SignInActions();
         }
 
         [When(@"I add new Skill")]

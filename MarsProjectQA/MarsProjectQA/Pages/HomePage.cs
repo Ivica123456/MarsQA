@@ -12,18 +12,24 @@ namespace MarsProjectQA.Pages
 {
     public class HomePage : CommonDriver
     {
-     public void GoToSingPage(IWebDriver driver)
+        //private WebDriver driver;
+        WebDriverWait wait1;
+
+        public HomePage()
+        {
+            //driver = new ChromeDriver();
+            wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+        }
+        
+        public void GoToSingPage()
+       
         {
 
-            //driver = new ChromeDriver();
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
-
-            //Lunch Trade Your Skills For A New Skill platform
-
-            driver.Navigate().GoToUrl("http://localhost:5000/Home");
-            driver.Manage().Window.Maximize();
-            Thread.Sleep(1000);
+                //Open chrome browser
+                driver.Manage().Window.Maximize();
+                //Launch Mars portal
+                driver.Navigate().GoToUrl("http://localhost:5000");
 
 
 
