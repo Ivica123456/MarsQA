@@ -64,9 +64,6 @@ namespace MarsProjectQA.Pages.model
             return this.universityName;
         }
 
-        internal void setGradutaiongName(object text)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

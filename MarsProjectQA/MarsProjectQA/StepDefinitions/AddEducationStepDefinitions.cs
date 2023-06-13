@@ -50,12 +50,6 @@ namespace MarsProjectQA.StepDefinitions
             Assert.AreEqual(Graduation, educationInfo.getGradutaiongName());
 
 
-            //string EducationTitleUpdate = profilePageObj.GetEducationTitle();
-            //Assert.That(EducationTitleUpdate == Title, "Actual code and expected code do not match.");
-            //string EducationDegreeUpdate = profilePageObj.GetEducationDegree();
-            //Assert.That(EducationDegreeUpdate == Degree, "Actual code and expected code do not match.");
-            //string EducationSelectedYearUpdate = profilePageObj.GetEducationSelectedYear();
-            //Assert.That(EducationSelectedYearUpdate == Graduation, "Actual code and expected code do not match.");
         }
     }
 }

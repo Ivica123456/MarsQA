@@ -161,35 +161,7 @@ namespace MarsProjectQA.Pages
 
         }
 
-        //public string GetUpdatedUniversityName()
-        //{
-        //    IWebElement actualUniversityName = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[2]"));
-        //    return actualUniversityName.Text;
-        //}
-        //public string GetUpdatedCountryCollegeSelect()
-        //{
-        //    IWebElement actualCountryCollegeSelect = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[1]"));
-        //    return actualCountryCollegeSelect.Text;
-        //}
-        //public string GetEducationTitle()
-        //{
-        //    IWebElement actualGetEducationTitle = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[3]"));
-        //    return actualGetEducationTitle.Text;
-
-        //}
-        //public string GetEducationDegree()
-        //{
-        //    IWebElement actualGetEducationDegree = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[4]"));
-        //    return actualGetEducationDegree.Text;
-
-        //}
-        //public string GetEducationSelectedYear()
-        //{
-        //    IWebElement actualSelectedYear = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[1]/tr/td[5]"));
-        //    return actualSelectedYear.Text;
-
-        //}
-
+      
 
         public void AddCertification()
         {
